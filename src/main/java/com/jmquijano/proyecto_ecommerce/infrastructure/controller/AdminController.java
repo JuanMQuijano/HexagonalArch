@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -39,8 +41,8 @@ public class AdminController {
     }
 
     @PostMapping("/create")
-    public String saveProduct(Product product) {
-        productUseCase.saveProduct(product);
+    public String saveProduct(Product product, @RequestParam("img") MultipartFile file) throws IOException {
+        productUseCase.saveProduct(product, file);
         return "redirect:/admin";
         //return "admin/products/create";
     }
