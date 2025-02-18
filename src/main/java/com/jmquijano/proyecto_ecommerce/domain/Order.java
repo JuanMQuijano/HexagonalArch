@@ -23,7 +23,7 @@ public class Order {
     private Integer id;
     private LocalDateTime dateCreated;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<OrderProduct> orderProducts;
 
     @ManyToOne

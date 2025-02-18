@@ -10,7 +10,6 @@
 
     <title>Spring eCommerce</title>
 
-
     <!-- Bootstrap core CSS -->
     <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
@@ -47,16 +46,16 @@
                     </a>
                 </div>
                 <div class="col-lg-6">
-                    <form action="carrito.html" method="POST">
-                        <input type="hidden" th:value="@{product.id}" name="idProduct">
-                        <input type="hidden" th:value="@{product.name}" name="nameProduct">
-                        <input type="hidden" th:value="@{product.price}" name="price">
+                    <form th:action="@{/user/cart/add-product}" method="POST">
+                        <input type="hidden" th:value="${product.id}" name="idProduct">
+                        <input type="hidden" th:value="${product.name}" name="nameProduct">
+                        <input type="hidden" th:value="${product.price}" name="price">
 
                         <h2 class="card-title" th:text="${product.name}"></h2>
 
                         <ul class="list-group">
                             <li class="list-group-item"><h5 th:text="'Precio: $' + ${product.price}"></h5></li>
-                            <li class="list-group-item"><h5 th:text="'Stock: $' + ${stock} + ' unidades'"></h5></li>
+                            <li class="list-group-item"><h5 th:text="'Stock: ' + ${stock} + ' unidades'"></h5></li>
                             <li class="list-group-item">
                                 <p th:text="'Descripción: ' + ${product.description}"></p>
                             </li>

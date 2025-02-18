@@ -33,7 +33,7 @@ public class ValidateStock {
         } else {
             List<Stock> stockList = stockUseCase.getStockByProduct(stock.getProduct());
             Integer balance = stockList.get(stockList.size() - 1).getBalance();
-            stock.setBalance(balance - stock.getUnitIn());
+            stock.setBalance(balance - stock.getUnitOut());
         }
 
         return stock;
