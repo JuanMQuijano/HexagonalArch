@@ -12,12 +12,19 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    @Mapping(source = "username", target = "username")
     @Mapping(source = "firstName", target = "firstName")
     @Mapping(source = "lastName", target = "lastName")
     @Mapping(source = "email", target = "email")
     UserDTO entityToDTO(User user);
 
     List<UserDTO> toDTOs(List<User> users);
+
+    @Mapping(source = "firstName", target = "firstName")
+    @Mapping(source = "lastName", target = "lastName")
+    @Mapping(source = "email", target = "email")
+    @Mapping(source = "address", target = "address")
+    @Mapping(source = "cellPhone", target = "cellPhone")
+    @Mapping(source = "password", target = "password")
+    User toEntity(UserDTO userDTO);
 
 }
